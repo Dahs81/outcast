@@ -20,6 +20,21 @@ module.exports = outcast = (function () {
 		return outArr;
 	}
 
+	function trim (arr) {
+		var newArr = [];
+		for (var i = 0; i < arr.length; i++) {
+			newArr.push(arr[i].trim());
+		}
+		return newArr;
+	}
+
+	function comma (str) {
+		var arr = str.split(',');
+		arr = trim(arr);
+
+		return arr;
+	}
+
 	// You can remove any amount from the array as you want.
 	function remove (out, numToRemove) {
 		var outArr = convert(out);
@@ -48,6 +63,9 @@ module.exports = outcast = (function () {
 
 	return {
 		remove: remove,
-		winner: winner
+		winner: winner,
+		comma: comma
 	};
 })();
+
+

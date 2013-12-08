@@ -1,0 +1,24 @@
+{
+  "name": "outcast",
+  "version": "0.0.1",
+  "description": "A tool to randomly remove a person from the game or pick a winner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dahs81/outcast.git"
+  },
+  "keywords": [
+    "random",
+    "game",
+    "remove",
+    "winner"
+  ],
+  "author": "Shad Beard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dahs81/outcast/issues"
+  }
+}

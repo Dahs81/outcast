@@ -20,5 +20,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Dahs81/outcast/issues"
+  },
+  "dependencies": {
+    "optimist": "~0.6.0"
   }
 }

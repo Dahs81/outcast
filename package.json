@@ -1,6 +1,6 @@
 {
   "name": "outcast",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A tool to randomly remove a person from the game or pick a winner",
   "main": "index.js",
   "scripts": {

@@ -65,8 +65,6 @@ if (argv.w) {
     
     // Print out the results
     console.log(winner);
-} else {
-    optimist.showHelp();
 }
 
 

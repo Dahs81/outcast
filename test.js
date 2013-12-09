@@ -11,3 +11,5 @@ var arr = outcast.comma(str);
 var result = outcast.remove(arr);
 console.log(result);
 
+console.log(outcast.winner("test one new big small"))
+

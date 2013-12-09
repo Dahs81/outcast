@@ -53,12 +53,12 @@ module.exports = outcast = (function () {
 
 	// Picks one winner
 	function winner (out) {
-		out = convert(out);
+		outArr = convert(out);
 
-		var random = Math.floor((Math.random() * out.length - 1) + 1);
-		out = out[random];
+		var random = Math.floor((Math.random() * outArr.length - 1) + 1);
+		outArr = outArr[random];
 
-		return [out];
+		return [outArr];
 	}
 
 	return {

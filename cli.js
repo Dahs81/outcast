@@ -1,68 +1,72 @@
 #!/usr/bin/env node
+var optimist = require('optimist');
+var argv = optimist
+    .alias('r', 'remove')
+    .default('r', 1)
+    .alias('s', 'string')
+    .alias('w', 'winner')
+    .boolean(['w'])
+    .usage('  outcast helps you randomly remove players or pick a winner from a game.\n \
+      Do you need to break a tie... let outcast help.\n \
+      Examples:\n \
+        outcast -r bill john mike sarah\n \
+        outcast -r 2 bill john mike sarah\n \
+        outcast -r -s "bill john mike sarah"\n \
+        outcast -w bill john mike sarah', {
+        'r': {
+            description: 'Removes things based on the number provided',
+            required: false
+        },
+        'w': {
+            description: 'Picks a winner from a list',
+            required: false
+        },
+        's': {
+            description: 'Input is in string form',
+            required: false
+        }
+    })
+    .argv;
+    
+if (!argv.r && !argv.w) {
+    optimist.showHelp();
+}
+    
 
-// var fs = require('fs')
-//   , randal = require('./index')
-//   ;
+var outcast = require('./index');
 
-// // set up the cli
-// var program = require('commander');
-// program
-//     .version('0.0.3')
-//     .usage('outcast [options] <list_of_things ...> # space delimited')
-//     .on('--help', function(){
-//         console.log('  Example: \n');
-//         console.log('    $ outcast john bill sarah mike rebecka');
-//         console.log('    john bill sarah rebecka\n');
-//     })
-//     .option('-r, --remove', 'remove a thing from the list')
-//     .option('-w', '--winner', 'pick a winner')
-//     .parse(process.argv);
+// Remove functionality
+if (argv.r && !argv.w) {
+    var remaining;
+    if (argv.s) {
+        remaining = outcast.remove(argv.s, argv.r);
+    } else {
+        remaining = outcast.remove(argv._, argv.r);
+    }
 
-// function ret(args) {
-//     console.log(outcast.apply(null, args).join(" "));
-// }
-
-// // don't output an empty list
-// if (program.args.length) {
-
-//     // handle the redirction file descriptor
-//     // e.g. $ ./index.js <(echo "foo bar joe")
-//     var args = program.args;
-//     if (program.args.length === 1 && program.args[0] == "/dev/fd/63") {    
-//         args = fs.readFileSync("/dev/fd/63");
-//         args = args.toString('utf-8').replace("\n", "").split(" ");
-//     } 
-
-//     ret(args);   
-
-// } else {
-
-//     // support data from stdin
-//     var data = "";
-//     process.stdin.resume();
-//     process.stdin.setEncoding('utf8');
-//     process.stdin.on('data', function(chunk) {
-//         data += chunk;
-//     });
-//     process.stdin.on('end', function() {
-//         data = data.replace("\n", "").split(' ');
-//         if (data.length) {
-//             ret(data);
-//         }
-//     });
-// }
-
-
-var argv = require('optimist').argv;
-
-
-if (argv.r) {
-    console.log('This is working');
+    // Convert the array to list -- prettify
+    remaining = remaining.join(' ');
+    
+    // Print out the results
+    console.log(remaining);
 }
 
 
+if (argv.w) {
+    var winner;
+    if (argv.s) {
+        winner = outcast.winner(argv.s);
+    } else {
+        winner = outcast.winner(argv._);
+    }
 
-
-
+    // Convert the array to list -- prettify
+    winner = winner.join(' ');
+    
+    // Print out the results
+    console.log(winner);
+} else {
+    optimist.showHelp();
+}
 
 

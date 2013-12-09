@@ -1,10 +1,13 @@
 {
   "name": "outcast",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A tool to randomly remove a person from the game or pick a winner",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "outcast": "./cli.js"
   },
   "repository": {
     "type": "git",

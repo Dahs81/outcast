@@ -41,7 +41,7 @@ if (argv.r && !argv.w) {
     // console.log(argv._ instanceof Array);
     if (argv.s) {
         remaining = outcast.remove(argv.s, argv.r);
-    } else {        
+    } else {      
         remaining = outcast.remove(argv._, argv.r);
     }
 

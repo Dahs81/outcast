@@ -17,6 +17,17 @@ var outcast = require('outcast');
 ## Usage
 You can remove as many players from the game at a time as you want. (Defaults to one)
 
+** Now with cli capability - so you can you it from your terminal***
+
+#### Terminal
+
+```
+outcast -r bill john mike sarah       // Remove one
+outcast -r 2 bill john mike sarah     // Remove [num] passed in
+outcast -r -s "bill john mike sarah"  // Pass as string
+outcast -w bill john mike sarah       // Pick a winner
+```
+
 #### Remove One
 ```
 var gamePlayers = ['John', 'Bill', 'Sarah', 'Mike', 'Rebecka'];

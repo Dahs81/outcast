@@ -9,9 +9,9 @@ var argv = optimist
     .usage('  outcast helps you randomly remove players or pick a winner from a game.\n \
       Do you need to break a tie... let outcast help.\n \
       Examples:\n \
-        outcast -r bill john mike sarah\n \
-        outcast -r 2 bill john mike sarah\n \
-        outcast -r -s "bill john mike sarah"\n \
+        outcast -r 2 bill john mike sarah     // A number is required for non-string args\n \
+        outcast -r -s "bill john mike sarah"  // -r defaults to 1 if used with -s option\n \
+        outcast -r 2 -s "bill john mike sarah"\n \
         outcast -w bill john mike sarah', {
         'r': {
             description: 'Removes things based on the number provided',
@@ -38,9 +38,10 @@ var outcast = require('./index');
 // Remove functionality
 if (argv.r && !argv.w) {
     var remaining;
+    // console.log(argv._ instanceof Array);
     if (argv.s) {
         remaining = outcast.remove(argv.s, argv.r);
-    } else {
+    } else {        
         remaining = outcast.remove(argv._, argv.r);
     }
 

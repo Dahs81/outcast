@@ -22,8 +22,10 @@ You can remove as many players from the game at a time as you want. (Defaults to
 #### Terminal
 
 ```
-outcast -r bill john mike sarah       // Remove one
-outcast -r 2 bill john mike sarah     // Remove [num] passed in
+npm install -g outcast
+
+outcast -r bill john mike sarah       // Remove one (use -r)
+outcast -R 2 bill john mike sarah     // Remove [num] passed in (use -R [num])
 outcast -r -s "bill john mike sarah"  // Pass as string
 outcast -w bill john mike sarah       // Pick a winner
 ```
